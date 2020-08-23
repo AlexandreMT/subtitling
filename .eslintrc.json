@@ -1,0 +1,54 @@
+{
+	"env": {
+		"es2020": true,
+		"node": true,
+		"jest": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": 11,
+		"sourceType": "module"
+	},
+	"plugins": [
+		"@typescript-eslint"
+	],
+	"rules": {
+		"semi": [
+			"error",
+			"never"
+		],
+		"quotes": [
+			"warn",
+			"single"
+		],
+		"prefer-const": "warn",
+		"no-var": "warn",
+		"no-empty": "error",
+		"max-len": [
+			"warn",
+			{
+				"code": 120
+			}
+		],
+		"no-sparse-arrays": "error",
+		"eqeqeq": "error",
+		"no-empty-function": "warn",
+		"require-await": "error",
+		"no-unused-vars": "off",
+		"eol-last": [
+			"error",
+			"always"
+		],
+		"no-lonely-if": "error",
+		"space-before-blocks": "error",
+		"prefer-template": "error",
+		"template-curly-spacing": [
+			"error",
+			"never"
+		]
+	}
+}
