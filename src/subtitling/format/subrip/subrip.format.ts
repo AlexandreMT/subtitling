@@ -90,13 +90,13 @@ class Subrip extends Subtitle {
   }
 
   public getMaxCPS(): number {
-    const cueCPS = this.getAllCuesCPS()
-    return Math.max(...cueCPS)
+    const cuesCPS = this.getAllCuesCPS()
+    return Math.max(...cuesCPS)
   }
 
   public getMinCPS(): number {
-    const cueCPS = this.getAllCuesCPS()
-    return Math.min(...cueCPS)
+    const cuesCPS = this.getAllCuesCPS()
+    return Math.min(...cuesCPS)
   }
 
   public getCPSAverage(): number {
@@ -109,6 +109,16 @@ class Subrip extends Subtitle {
 
   public getAllCuesDuration(): number[] {
     return this.cues.map((cue: SubripCue) => cue.getDuration())
+  }
+
+  public getMaxDuration(): number {
+    const cuesDuration = this.getAllCuesDuration()
+    return Math.max(...cuesDuration)
+  }
+
+  public getMinDuration(): number {
+    const cuesDuration = this.getAllCuesDuration()
+    return Math.min(...cuesDuration)
   }
 }
 
