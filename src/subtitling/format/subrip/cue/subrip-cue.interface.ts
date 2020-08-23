@@ -6,5 +6,7 @@ export interface ISubripCue {
 
 export interface ISubripCueTime {
   startTime: string,
-  endTime: string
+  endTime: string,
+  startTimeMS: number,
+  endTimeMS: number
 }

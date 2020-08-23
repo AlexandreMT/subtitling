@@ -1,4 +1,5 @@
 import SubripCue from '@subtitling/format/subrip/cue/subrip-cue.format'
+import { timestampToMilliseconds } from '@utils/time-converter.util'
 
 export function subripParser(subtitle: string): SubripCue[] {
   const regex = /(\d+)\n(\d{2}:\d{2}:\d{2},\d{3}) --> (\d{2}:\d{2}:\d{2},\d{3})/g
@@ -16,7 +17,9 @@ export function subripParser(subtitle: string): SubripCue[] {
       id: Number(splittedSubtitle[i].trim()),
       time: {
         startTime: splittedSubtitle[i + 1].trim(),
-        endTime: splittedSubtitle[i + 2].trim()
+        endTime: splittedSubtitle[i + 2].trim(),
+        startTimeMS: timestampToMilliseconds(splittedSubtitle[i + 1].trim()),
+        endTimeMS: timestampToMilliseconds(splittedSubtitle[i + 2].trim())
       },
       text
     }))

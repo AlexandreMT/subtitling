@@ -19,7 +19,8 @@ module.exports = {
         '@services': './src/services',
         '@controllers': './src/controllers',
         '@views': './src/views',
-        '@subtitling': './src/subtitling'
+        '@subtitling': './src/subtitling',
+        '@utils': './src/utils'
       }
     }]
   ],

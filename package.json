@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
-    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --clear --ignore-watch node_modules --no-notify src/index.ts",
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --clear --ignore-watch node_modules --no-notify src/testing.ts",
     "test": "jest"
   },
   "devDependencies": {
