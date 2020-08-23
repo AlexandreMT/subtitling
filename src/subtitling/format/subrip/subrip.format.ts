@@ -106,6 +106,10 @@ class Subrip extends Subtitle {
     const average = (CPSSum / this.getAllCuesCPS().length).toFixed(2)
     return Number(average)
   }
+
+  public getAllCuesDuration(): number[] {
+    return this.cues.map((cue: SubripCue) => cue.getDuration())
+  }
 }
 
 export default Subrip
