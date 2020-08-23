@@ -6,9 +6,7 @@ class Subtitle {
     protected encoding = 'utf-8' as BufferEncoding
   ) {}
 
-  public setFileName(name: string): boolean | string {
-    if (!name) return false
-
+  public setFileName(name: string): string {
     this.fileName = name
     return this.fileName
   }
