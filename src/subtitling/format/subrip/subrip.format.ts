@@ -98,6 +98,14 @@ class Subrip extends Subtitle {
     const cueCPS = this.getAllCuesCPS()
     return Math.min(...cueCPS)
   }
+
+  public getCPSAverage(): number {
+    let CPSSum = 0
+    this.getAllCuesCPS().forEach((cps: number) => CPSSum += cps)
+
+    const average = (CPSSum / this.getAllCuesCPS().length).toFixed(2)
+    return Number(average)
+  }
 }
 
 export default Subrip
