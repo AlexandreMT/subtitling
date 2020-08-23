@@ -57,6 +57,16 @@ class SubripCue {
   public getDuration(): number {
     return this.cue.time.endTimeMS - this.cue.time.startTimeMS
   }
+
+  public getTextLength(): number {
+    const strippedCues = this.getStrippedText()
+    return strippedCues.join('').length
+  }
+
+  public getCPS(): number {
+    const cps = this.getTextLength() / (this.getDuration() / 1000)
+    return Number(cps.toFixed(2))
+  }
 }
 
 export default SubripCue
