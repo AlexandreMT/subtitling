@@ -17,13 +17,13 @@ class Subtitle {
     return this.fileName
   }
 
-  public getRawContent(): string {
+  public stringify(): string {
     return this.file.toString(this.encoding)
   }
 
   public setEncoding(encoding: BufferEncoding): string {
     this.encoding = encoding
-    return this.getRawContent()
+    return this.stringify()
   }
 
   public getEncoding(): string {
