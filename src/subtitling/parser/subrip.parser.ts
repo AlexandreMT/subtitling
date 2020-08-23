@@ -8,22 +8,27 @@ export function subripParser(subtitle: string): SubripCue[] {
   splittedSubtitle.shift()
 
   const cues: SubripCue[] = []
-  for (let i = 0; i < splittedSubtitle.length; i += 4) {
-    const text = splittedSubtitle[i + 3]
-      .split('\n')
-      .filter((text: string) => text !== '')
-
-    cues.push(new SubripCue({
-      id: Number(splittedSubtitle[i].trim()),
-      time: {
-        startTime: splittedSubtitle[i + 1].trim(),
-        endTime: splittedSubtitle[i + 2].trim(),
-        startTimeMS: timestampToMilliseconds(splittedSubtitle[i + 1].trim()),
-        endTimeMS: timestampToMilliseconds(splittedSubtitle[i + 2].trim())
-      },
-      text
-    }))
+  try {
+    for (let i = 0; i < splittedSubtitle.length; i += 4) {
+      const text = splittedSubtitle[i + 3]
+        .split('\n')
+        .filter((text: string) => text !== '')
+  
+      cues.push(new SubripCue({
+        id: Number(splittedSubtitle[i].trim()),
+        time: {
+          startTime: splittedSubtitle[i + 1].trim(),
+          endTime: splittedSubtitle[i + 2].trim(),
+          startTimeMS: timestampToMilliseconds(splittedSubtitle[i + 1].trim()),
+          endTimeMS: timestampToMilliseconds(splittedSubtitle[i + 2].trim())
+        },
+        text
+      }))
+    }
+  
+    return cues
+  } catch (error) {
+    if (error instanceof Error) throw { error: error.message }
+    throw error
   }
-
-  return cues
 }
