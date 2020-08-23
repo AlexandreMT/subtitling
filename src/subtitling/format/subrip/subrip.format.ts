@@ -84,6 +84,16 @@ class Subrip extends Subtitle {
 
     return content
   }
+
+  public getMaxCPS(): number {
+    const cueCPS = this.cues.map((cue: SubripCue) => cue.getCPS())
+    return Math.max(...cueCPS)
+  }
+
+  public getMinCPS(): number {
+    const cueCPS = this.cues.map((cue: SubripCue) => cue.getCPS())
+    return Math.min(...cueCPS)
+  }
 }
 
 export default Subrip
