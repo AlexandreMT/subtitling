@@ -44,7 +44,7 @@ class Subrip extends Subtitle {
     return strippedContent
   }
 
-  public getRawStrippedCues(): string {
+  public getStringifiedStrippedCues(): string {
     let content = ''
     this.cues.forEach((cue: SubripCue) => {
       content = content.concat(
