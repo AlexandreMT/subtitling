@@ -120,6 +120,14 @@ class Subrip extends Subtitle {
     const cuesDuration = this.getAllCuesDuration()
     return Math.min(...cuesDuration)
   }
+
+  public getDurationAverage(): number {
+    let durationSum = 0
+    this.getAllCuesDuration().forEach((duration: number) => durationSum += duration)
+
+    const average = (durationSum / this.getAllCuesDuration().length).toFixed(0)
+    return Number(average)
+  }
 }
 
 export default Subrip
