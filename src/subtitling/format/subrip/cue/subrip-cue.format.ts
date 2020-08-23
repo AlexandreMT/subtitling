@@ -45,6 +45,18 @@ class SubripCue {
   public getEnd(): string {
     return this.cue.time.endTime
   }
+
+  public getStartMS(): number {
+    return this.cue.time.startTimeMS
+  }
+
+  public getEndMS(): number {
+    return this.cue.time.endTimeMS
+  }
+
+  public getDuration(): number {
+    return this.cue.time.endTimeMS - this.cue.time.startTimeMS
+  }
 }
 
 export default SubripCue
