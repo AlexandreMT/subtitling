@@ -99,10 +99,11 @@ class Subrip extends Subtitle {
   }
 
   public getCPSAverage(): number {
+    const allCuesCPS = this.getAllCuesCPS()
     let CPSSum = 0
-    this.getAllCuesCPS().forEach((cps: number) => CPSSum += cps)
+    allCuesCPS.forEach((cps: number) => CPSSum += cps)
 
-    const average = (CPSSum / this.getAllCuesCPS().length).toFixed(2)
+    const average = (CPSSum / allCuesCPS.length).toFixed(2)
     return Number(average)
   }
 
@@ -121,10 +122,11 @@ class Subrip extends Subtitle {
   }
 
   public getDurationAverage(): number {
+    const allCuesDuration = this.getAllCuesDuration()
     let durationSum = 0
-    this.getAllCuesDuration().forEach((duration: number) => durationSum += duration)
+    allCuesDuration.forEach((duration: number) => durationSum += duration)
 
-    const average = (durationSum / this.getAllCuesDuration().length).toFixed(0)
+    const average = (durationSum / allCuesDuration.length).toFixed(0)
     return Number(average)
   }
 }
