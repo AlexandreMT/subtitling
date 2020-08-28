@@ -65,10 +65,9 @@ class Subrip extends Subtitle {
 
   public getPart(from: number, to: number): SubripCue[] {
     const partialContent: SubripCue[] = []
-    this.cues.forEach((cue: SubripCue) => {
-      if (cue.getId() >= from && cue.getId() <= to)
-        partialContent.push(cue)
-    })
+    for (let i = from - 1; i <= to - 1; i++) {
+      partialContent.push(this.cues[i])
+    }
 
     return partialContent
   }
