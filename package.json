@@ -5,6 +5,18 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "Alexandre Matos <alexandremt03@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlexandreMT/subtitling"
+  },
+  "keywords": [
+    "subtitle",
+    "srt",
+    "captions",
+    "subrip",
+    "parser",
+    "stringify"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
