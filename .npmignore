@@ -1,0 +1,17 @@
+# source
+**/*.ts
+*.ts
+src
+
+# definitions
+!**/*.d.ts
+!*.d.ts
+
+# configuration
+tsconfig.json
+babel.config.js
+.eslintignore
+.eslintrc.json
+.gitignore
+jest.config.js
+yarn.lock
