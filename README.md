@@ -1,5 +1,4 @@
 # Subtitling
-------
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg) ![Version](https://img.shields.io/github/package-json/v/AlexandreMT/subtitling)
 
 > A subtitle parser written in TypeScript
@@ -13,7 +12,6 @@ npm i --save subtitling
 ```
 
 ## Subrip
-------
 
 ```typescript
 import fs from 'fs'
