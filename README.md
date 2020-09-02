@@ -27,7 +27,7 @@ console.log(subtitle.getFirstCue())
 
 Output
 
-```json
+```typescript
 SubripCue {
   cue: {
     id: 1,
