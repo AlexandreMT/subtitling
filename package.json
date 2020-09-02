@@ -1,7 +1,7 @@
 {
   "name": "subtitling",
   "description": "A subtitle parser",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "author": "Alexandre Matos <alexandremt03@gmail.com>",
   "repository": {
