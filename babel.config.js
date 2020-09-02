@@ -13,18 +13,13 @@ module.exports = {
   plugins: [
     ['module-resolver', {
       alias: {
-        '@config': './src/config',
-        '@models': './src/models',
-        '@routes': './src/routes',
-        '@services': './src/services',
-        '@controllers': './src/controllers',
-        '@views': './src/views',
         '@subtitling': './src/subtitling',
         '@utils': './src/utils'
       }
     }]
   ],
   ignore: [
-    '**/*.spec.ts'
+    '**/*.spec.ts',
+    '**/*.d.ts'
   ]
 }
