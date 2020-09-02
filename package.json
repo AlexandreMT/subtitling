@@ -19,7 +19,13 @@
   ],
   "license": "MIT",
   "scripts": {
+    "delete-build": "rimraf dist",
+    "prebuild": "yarn delete-build",
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
+
+    "prepublish:npm": "yarn run build",
+    "publish:npm": "yarn publish --access public",
+
     "dev": "ts-node-dev -r tsconfig-paths/register --respawn --clear --ignore-watch node_modules --no-notify src/testing.ts",
     "test": "jest"
   },
@@ -43,6 +49,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^26.4.2",
     "prettier": "^2.1.1",
+    "rimraf": "^3.0.2",
     "ts-jest": "^26.3.0",
     "ts-node-dev": "^1.0.0-pre.61",
     "tsconfig-paths": "^3.9.0",
