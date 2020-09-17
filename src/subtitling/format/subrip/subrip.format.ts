@@ -45,14 +45,14 @@ class Subrip extends Subtitle {
   }
 
   public getStringifiedStrippedCues(): string {
-    let content = ''
+    const content = []
     this.cues.forEach((cue: SubripCue) => {
-      content = content.concat(
+      content.push(
         `${cue.getId()}\n${cue.getStart().trim()} --> ${cue.getEnd().trim()}\n${cue.getStrippedText().join('\n')}\n\n`
       )
     })
 
-    return content
+    return content.join('')
   }
 
   public getFirstCue(): SubripCue {
@@ -74,14 +74,14 @@ class Subrip extends Subtitle {
 
   public getStringifiedPart(from: number, to: number): string {
     const partialContent = this.getPart(from, to)
-    let content = ''
+    const content = []
     partialContent.forEach((cue: SubripCue) => {
-      content = content.concat(
+      content.push(
         `${cue.getId()}\n${cue.getStart().trim()} --> ${cue.getEnd().trim()}\n${cue.getText().join('\n')}\n\n`
       )
     })
 
-    return content
+    return content.join('')
   }
 
   public getAllCuesCPS(): number[] {
