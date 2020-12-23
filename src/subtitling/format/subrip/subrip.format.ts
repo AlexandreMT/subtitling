@@ -100,8 +100,7 @@ class Subrip extends Subtitle {
 
   public getCPSAverage(): number {
     const allCuesCPS = this.getAllCuesCPS()
-    let CPSSum = 0
-    allCuesCPS.forEach((cps: number) => CPSSum += cps)
+    const CPSSum = allCuesCPS.reduce((p: number, c: number) => p + c, 0)
 
     const average = (CPSSum / allCuesCPS.length).toFixed(2)
     return Number(average)
@@ -123,8 +122,7 @@ class Subrip extends Subtitle {
 
   public getDurationAverage(): number {
     const allCuesDuration = this.getAllCuesDuration()
-    let durationSum = 0
-    allCuesDuration.forEach((duration: number) => durationSum += duration)
+    const durationSum = allCuesDuration.reduce((p: number, c: number) => p + c, 0)
 
     const average = (durationSum / allCuesDuration.length).toFixed(0)
     return Number(average)
