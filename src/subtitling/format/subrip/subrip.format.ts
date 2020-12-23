@@ -64,11 +64,7 @@ class Subrip extends Subtitle {
   }
 
   public getPart(from: number, to: number): SubripCue[] {
-    const partialContent: SubripCue[] = []
-    for (let i = from - 1; i <= to - 1; i++) {
-      partialContent.push(this.cues[i])
-    }
-
+    const partialContent = this.cues.slice(from - 1, to)
     return partialContent
   }
 
