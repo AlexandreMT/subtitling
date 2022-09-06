@@ -10,17 +10,17 @@ export function subripParser(subtitle: string): SubripCue[] {
   const cues: SubripCue[] = [];
   try {
     for (let i = 0; i < splittedSubtitle.length; i += 4) {
-      const text = splittedSubtitle[i + 3]
+      const text = splittedSubtitle.at(i + 3)
         .split('\n')
         .filter((text: string) => text !== '');
-  
+
       cues.push(new SubripCue({
-        id: Number(splittedSubtitle[i].trim()),
+        id: Number(splittedSubtitle.at(i).trim()),
         time: {
-          startTime: splittedSubtitle[i + 1].trim(),
-          endTime: splittedSubtitle[i + 2].trim(),
-          startTimeMS: timestampToMilliseconds(splittedSubtitle[i + 1].trim()),
-          endTimeMS: timestampToMilliseconds(splittedSubtitle[i + 2].trim()),
+          startTime: splittedSubtitle.at(i + 1).trim(),
+          endTime: splittedSubtitle.at(i + 2).trim(),
+          startTimeMS: timestampToMilliseconds(splittedSubtitle.at(i + 1).trim()),
+          endTimeMS: timestampToMilliseconds(splittedSubtitle.at(i + 2).trim()),
         },
         text,
       }));

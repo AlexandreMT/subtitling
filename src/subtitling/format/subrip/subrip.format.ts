@@ -29,7 +29,7 @@ class Subrip extends Subtitle {
   }
 
   public getCue(index: number): SubripCue {
-    return this.cues[index];
+    return this.cues.at(index - 1);
   }
 
   public getStrippedCues(): SubripCue[] {    
@@ -56,11 +56,15 @@ class Subrip extends Subtitle {
   }
 
   public getFirstCue(): SubripCue {
-    return this.cues[0];
+    return this.cues.at(0);
   }
 
   public getLastCue(): SubripCue {
-    return this.cues[this.cues.length - 1];
+    return this.cues.at(-1);
+  }
+
+  public getCuesCount(): number {
+    return this.cues.length;
   }
 
   public getPart(from: number, to: number): SubripCue[] {
