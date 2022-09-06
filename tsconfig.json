@@ -22,7 +22,7 @@
     "baseUrl": "./",
     "paths": {
       "@subtitling/*": ["./src/subtitling/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@subrip/*": ["./src/subtitling/format/subrip/*"]
     }
   },
   "include": [

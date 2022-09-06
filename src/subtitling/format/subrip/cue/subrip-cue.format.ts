@@ -1,7 +1,7 @@
 import {
   ISubripCue,
   ISubripCueTime
-} from '@subtitling/format/subrip/cue/subrip-cue.interface';
+} from '@subrip/cue/subrip-cue.interface';
 
 class SubripCue {
   constructor(private cue: ISubripCue) {}

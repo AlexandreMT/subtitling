@@ -1,6 +1,6 @@
 import Subtitle from '@subtitling/subtitle';
-import SubripCue from '@subtitling/format/subrip/cue/subrip-cue.format';
-import { subripParser } from '@subtitling/parser/subrip.parser';
+import SubripCue from '@subrip/cue/subrip-cue.format';
+import { subripParser } from '@subrip/parser/subrip.parser';
 
 class Subrip extends Subtitle {
   private cues: SubripCue[] = [];
@@ -126,6 +126,10 @@ class Subrip extends Subtitle {
 
     const average = (durationSum / allCuesDuration.length).toFixed(0);
     return Number(average);
+  }
+
+  public splitByCue(totalParts: number) {
+
   }
 }
 
