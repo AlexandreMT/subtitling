@@ -1,5 +1,5 @@
 class Subtitle {
-  private fileName = 'subtitling'
+  private fileName = 'subtitling';
 
   constructor(
     protected file: Buffer,
@@ -7,26 +7,26 @@ class Subtitle {
   ) {}
 
   public setFileName(name: string): string {
-    this.fileName = name
-    return this.fileName
+    this.fileName = name;
+    return this.fileName;
   }
 
   public getFileName(): string {
-    return this.fileName
+    return this.fileName;
   }
 
   public stringify(): string {
-    return this.file.toString(this.encoding)
+    return this.file.toString(this.encoding);
   }
 
   public setEncoding(encoding: BufferEncoding): string {
-    this.encoding = encoding
-    return this.stringify()
+    this.encoding = encoding;
+    return this.stringify();
   }
 
   public getEncoding(): string {
-    return this.encoding
+    return this.encoding;
   }
 }
 
-export default Subtitle
+export default Subtitle;

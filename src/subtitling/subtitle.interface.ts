@@ -1,4 +1,4 @@
 export interface IFileOptions {
-  showDataInMS?: boolean,
-  encoding?: BufferEncoding
+  showDataInMS?: boolean;
+  encoding?: BufferEncoding;
 }
