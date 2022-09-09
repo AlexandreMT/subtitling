@@ -1,11 +1,18 @@
+import { errorHandler } from 'src/Helpers/error-handler.helper';
+
 export function timestampToMilliseconds(timestamp: string): number {
-  const match = timestamp.match(/^(?:(\d{2,}):)?(\d{2}):(\d{2})[,.](\d{3})$/);
-  if (!match) throw new Error(`Invalid SRT time format: "${timestamp}"`);
+  try {
+    const match = timestamp.match(/^(?:(\d{2,}):)?(\d{2}):(\d{2})[,.](\d{3})$/);
 
-  const hours = match[1] ? parseInt(match[1], 10) * 3600000 : 0;
-  const minutes = parseInt(match[2], 10) * 60000;
-  const seconds = parseInt(match[3], 10) * 1000;
-  const milliseconds = parseInt(match[4], 10);
+    if (!match) throw new Error(`Invalid SRT time format: "${timestamp}"`);
 
-  return hours + minutes + seconds + milliseconds;
+    const hours = match[1] ? parseInt(match[1], 10) * 3600000 : 0;
+    const minutes = parseInt(match[2], 10) * 60000;
+    const seconds = parseInt(match[3], 10) * 1000;
+    const milliseconds = parseInt(match[4], 10);
+
+    return hours + minutes + seconds + milliseconds;
+  } catch (error) {
+    throw errorHandler('Error on converting timestamp to ms', error);
+  }
 }
