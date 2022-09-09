@@ -1,9 +1,12 @@
 import Subtitle from '@subtitling/subtitle';
 import SubripCue from '@subrip/cue/subrip-cue.format';
 import { subripParser } from '@subrip/parser/subrip.parser';
+import { calculateCuesCount, buildParts } from '@subrip/utils/split-by-cue.util';
+import { Parts } from './subrip.interface';
 
 class Subrip extends Subtitle {
   private cues: SubripCue[] = [];
+  private parts: Parts[] = [];
 
   constructor(
     protected file: Buffer,
@@ -72,6 +75,10 @@ class Subrip extends Subtitle {
     return partialContent;
   }
 
+  public getSplittedParts(): Parts[] {
+    return this.parts;
+  }
+
   public getStringifiedPart(from: number, to: number): string {
     const partialContent = this.getPart(from, to);
     const content = [];
@@ -128,8 +135,29 @@ class Subrip extends Subtitle {
     return Number(average);
   }
 
-  public splitByCue(totalParts: number) {
+  public splitByCues(totalPartsToSplit: number): Parts[] {
+    const totalCuesByPart = calculateCuesCount({ cuesCount: this.getCuesCount(), totalPartsToSplit });
+    this.parts = buildParts({ totalCuesByPart });
 
+    return this.parts;
+  }
+
+  public getStringifiedBuiltParts(): string[] {
+    const stringifiedParts = [];
+
+    this.parts.forEach((part: Parts) => {
+      const partialContent = this.getPart(part.from, part.to);
+      const content = [];
+      partialContent.forEach((cue: SubripCue, cueIndex: number) => {
+        content.push(
+          `${cueIndex + 1}\n${cue.getStart().trim()} --> ${cue.getEnd().trim()}\n${cue.getText().join('\n')}\n\n`
+        );
+      });
+
+      stringifiedParts.push(content.join(''));
+    });
+
+    return stringifiedParts;
   }
 }
 
