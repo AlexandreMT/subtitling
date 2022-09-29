@@ -6,6 +6,14 @@ import {
 class SubripCue {
   constructor(private cue: ISubripCue) {}
 
+  public stringify(customCueId?: number) {
+    const stringifiedCue = `${customCueId || this.getId()}
+${this.getStart().trim()} --> ${this.getEnd().trim()}
+${this.getText().join('\n')}`;
+
+    return stringifiedCue;
+  }
+
   public getId(): number {
     return this.cue.id;
   }

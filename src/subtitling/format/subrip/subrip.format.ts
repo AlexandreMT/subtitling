@@ -82,13 +82,10 @@ class Subrip extends Subtitle {
   public getStringifiedPart(from: number, to: number): string {
     const partialContent = this.getPart(from, to);
     const content = [];
-    partialContent.forEach((cue: SubripCue) => {
-      content.push(
-        `${cue.getId()}\n${cue.getStart().trim()} --> ${cue.getEnd().trim()}\n${cue.getText().join('\n')}\n\n`
-      );
-    });
 
-    return content.join('');
+    partialContent.forEach((cue: SubripCue) => content.push(cue.stringify()));
+
+    return content.join('\n\n');
   }
 
   public getAllCuesCPS(): number[] {
@@ -148,13 +145,10 @@ class Subrip extends Subtitle {
     this.parts.forEach((part: Parts) => {
       const partialContent = this.getPart(part.from, part.to);
       const content = [];
-      partialContent.forEach((cue: SubripCue, cueIndex: number) => {
-        content.push(
-          `${cueIndex + 1}\n${cue.getStart().trim()} --> ${cue.getEnd().trim()}\n${cue.getText().join('\n')}\n\n`
-        );
-      });
 
-      stringifiedParts.push(content.join(''));
+      partialContent.forEach((cue: SubripCue, cueIndex: number) => content.push(cue.stringify(cueIndex + 1)));
+
+      stringifiedParts.push(content.join('\n\n'));
     });
 
     return stringifiedParts;
